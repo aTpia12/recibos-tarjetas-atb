@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Recibo = ({setValores, year}) => {
+const Recibo = ({setMod ,setValores, year}) => {
 
   const [fecha, setFecha] = useState('');
   const [cantidad, setCantidad] = useState('');
@@ -62,13 +62,26 @@ const Recibo = ({setValores, year}) => {
               className="border-2 w-full p-2 mt-2 rounded-md"
               onChange={(e) => setCantidad(e.target.value)}
             />
-          </div>
+          </div>  
           <input 
             type={"submit"}
             className="bg-blue-700 w-full p-3 text-white uppercase font-bold hover:bg-blue-800 cursor-pointer transition-all"
             value={"Generar"}
           />
         </form>
+        <hr className='py-2 mt-5'/>
+        <input 
+            type={"button"}
+            className="bg-gray-500 w-3/4 p-3 text-white uppercase font-bold hover:bg-gray-600 cursor-pointer transition-all rounded-lg"
+            value={"Seguro Int."}
+            onClick={() => setMod(1)}
+          />
+        <input 
+            type={"button"}
+            className="mt-5 bg-gray-500 w-3/4 p-3 text-white uppercase font-bold hover:bg-gray-600 cursor-pointer transition-all rounded-lg"
+            value={"Pol. Qualitas"}
+            onClick={() => setMod(2)}
+        />
     </div>
   )
 }

@@ -11,6 +11,8 @@ function App() {
   const year = hoy.getFullYear();
   const month = hoy.getMonth();
 
+  const [mod, setMod] = useState(1);
+
   const [valores, setValores] = useState([
     {
       fecha: year+'-'+month+1,
@@ -46,15 +48,19 @@ const fec = (m) => {
 
 const mesActual = fec(parseInt(mes[1]));
 
+console.log(mod);
+
   return (
     <div className="container mx-auto mt-10">
       <Header />
       <div className="mt-12 md:flex">
         <Recibo
+          setMod = {setMod}
           setValores = {setValores}
           year = {year+'-'+month+1}
         />
         <ListaRecibos 
+          mod={mod}
           valores={valores}
           mesActual={mesActual}
         />

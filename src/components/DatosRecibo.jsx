@@ -1,6 +1,6 @@
 import { numLetras } from "../helpers/NumLetras";
 
-const DatosRecibo = ({valores, mesActual}) => {
+const DatosRecibo = ({auto_cve, valores, mesActual}) => {
     const fecha = valores[0].fecha
     const mes = fecha.split('-');
 
@@ -18,7 +18,7 @@ const DatosRecibo = ({valores, mesActual}) => {
 
   return (
     <div className="m-3 shadow-xl py-10 rounded-xl bg-white px-5">
-        <div className="grid grid-cols-3 divide-x">
+        <div className="grid grid-cols-3 divide-x text-xs">
             <div className="">
                 <table className='border-separate border-spacing-1 border border-solid border-black w-2/4'>
                     <thead className='bg-gray-200'>
@@ -39,10 +39,10 @@ const DatosRecibo = ({valores, mesActual}) => {
                         </tr>
                     </tbody>
                 </table>
-                <div className="mt-5 border-solid border-2 border-gray-600 w-3/4 font-bold uppercase text-center">
+                <div className="mt-5 border-solid border-2 border-gray-600 w-3/4 font-bold uppercase text-center text-xs">
                     Recibi del aut. cve:
                 </div>
-                <span className='font-black text-3xl mx-20'>#</span>
+                <span className='font-black text-3xl mx-20'>{auto_cve}</span>
                 <div className="mt-2 border-solid border-2 border-gray-600 w-3/4 font-bold uppercase text-center">
                     La cantidad de:
                 </div>
@@ -50,10 +50,10 @@ const DatosRecibo = ({valores, mesActual}) => {
                 <div className="mt-2 border-solid border-2 border-gray-600 w-3/4 font-bold uppercase text-center">
                     Por concepto de:
                 </div>
-                <p className='font-black text-sm mx-7 uppercase'>Fondo del seg. int.</p>
-                <p className='font-black text-sm mx-7 uppercase'>mes de {mesActual.substring(0,3)} {mes[0]}</p>
+                <p className='font-black text-xs mx-7 uppercase'>Fondo del seg. int.</p>
+                <p className='font-black text-xs mx-7 uppercase'>mes de {mesActual.substring(0,3)} {mes[0]}</p>
             </div>
-            <div className="col-span-2 px-5">
+            <div className="col-span-2 px-5 text-xs">
                 <div className="grid grid-cols-3">
                     <div className="col">
                         <table className='border-separate border-spacing-1 border border-solid border-black w-1/4'>
@@ -87,7 +87,7 @@ const DatosRecibo = ({valores, mesActual}) => {
                 </div>
                 <p className='pt-10 font-bold uppercase'>
                     Recibi de la unidad clave: {''}
-                    <span className='font-black text-3xl'>#</span>
+                    <span className='font-black text-3xl'>{auto_cve}</span>
                 </p>
                 <p className='mx-5 uppercase font-bold'>Por concepto de: contibución para el fondo del {''}
                     <span className='font-black'>Seguro interior</span>
