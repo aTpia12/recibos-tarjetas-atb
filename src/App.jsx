@@ -1,15 +1,19 @@
 import Header from "./components/Header"
 import ListaRecibos from "./components/ListaRecibos"
 import Recibo from "./components/Recibo"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
+
+  const [datas, setDatas] = useState([])
+  const [mode, setMode] = useState(false)
 
   const tiem = Date.now();
   const hoy = new Date(tiem);
 
   const year = hoy.getFullYear();
   const month = hoy.getMonth();
+
 
   const [mod, setMod] = useState(1);
 
@@ -19,7 +23,19 @@ function App() {
       cantidad: '200'
     }
   ]);
+  
+  useEffect(() => {
+    const storedCache = JSON.parse(localStorage.getItem('selecciones'));
 
+    if(storedCache !== null){
+      setDatas(storedCache)
+    }else
+    {
+      localStorage.setItem('selecciones', JSON.stringify([]));
+    }
+  
+  }, [])
+  
   const meses = [
     {"id" : 1 , "mes" : "ENERO"},
     {"id" : 2 , "mes" : "FEBRERO"},
@@ -59,7 +75,10 @@ console.log(mod);
           setValores = {setValores}
           year = {year+'-'+month+1}
         />
-        <ListaRecibos 
+        <ListaRecibos
+          setMode={setMode}
+          setDatas={setDatas}
+          datas={datas} 
           mod={mod}
           valores={valores}
           mesActual={mesActual}

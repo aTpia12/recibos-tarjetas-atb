@@ -5,6 +5,7 @@ export const getUnits = async() => {
     
     const units = data.map( dt => (
       {
+        id : dt.id,
         auto_cve: dt.number,
       }
     ));

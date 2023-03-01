@@ -17,6 +17,31 @@ const DatosQualitas = ({auto_cve, valores, mesActual}) => {
       
     const costo = formatter.format(valores[0].cantidad);
 
+    const tri = [
+        {"id" : 1 , "tete" : "1ER"},
+        {"id" : 2 , "tete" : "1ER"},
+        {"id" : 3 , "tete" : "1ER"},
+        {"id" : 4 , "tete" : "2DO"},
+        {"id" : 5 , "tete" : "2DO"},
+        {"id" : 6 , "tete" : "2DO"},
+        {"id" : 7 , "tete" : "3ER"},
+        {"id" : 8 , "tete" : "3ER"},
+        {"id" : 9 , "tete" : "3ER"},
+        {"id" : 10 , "tete" : "4TO"},
+        {"id" : 11 , "tete" : "4TO"},
+        {"id" : 12 , "tete" : "4TO"},
+    ];
+
+    const trime = (m) => {
+        const result = tri.find(
+            valor => valor.id === m
+        );
+    
+        return result.tete;
+    }
+
+    const triMe = trime(parseInt(mes[1]));
+
   return (
     <>
     <div className="m-3 shadow-xl py-10 rounded-xl bg-white px-5">
@@ -95,7 +120,7 @@ const DatosQualitas = ({auto_cve, valores, mesActual}) => {
                     La cantidad de: {''}
                     <span className='font-black'>({moneda} {centavos[1] ? centavos[1] : '00'}/100 m.n.)</span>
                 </p>
-                <p className='uppercase font-bold'>Por concepto de: parcialidad 1/3 {mesActual.substring(0,3)} {mes[0]}, 1ER Trimestre {''}
+                <p className='uppercase font-bold'>Por concepto de: parcialidad 1/3 {mesActual.substring(0,3)} {mes[0]}, {triMe} Trimestre {''}
                     <span className='font-black'>Pol Qualitas</span>
                 </p>
                 <div className='mt-10 right-0 uppercase font-bold'>
@@ -183,7 +208,7 @@ const DatosQualitas = ({auto_cve, valores, mesActual}) => {
                     La cantidad de: {''}
                     <span className='font-black'>({moneda} {centavos[1] ? centavos[1] : '00'}/100 m.n.)</span>
                 </p>
-                <p className='uppercase font-bold'>Por concepto de: parcialidad 2/3 {mesActual.substring(0,3)} {mes[0]}, 1ER Trimestre {''}
+                <p className='uppercase font-bold'>Por concepto de: parcialidad 2/3 {mesActual.substring(0,3)} {mes[0]}, {triMe} Trimestre {''}
                     <span className='font-black'>Pol Qualitas</span>
                 </p>
                 <div className='mt-10 right-0 uppercase font-bold'>
@@ -271,7 +296,7 @@ const DatosQualitas = ({auto_cve, valores, mesActual}) => {
                     La cantidad de: {''}
                     <span className='font-black'>({moneda} {centavos[1] ? centavos[1] : '00'}/100 m.n.)</span>
                 </p>
-                <p className='uppercase font-bold'>Por concepto de: parcialidad 3/3 {mesActual.substring(0,3)} {mes[0]}, 1ER Trimestre {''}
+                <p className='uppercase font-bold'>Por concepto de: parcialidad 3/3 {mesActual.substring(0,3)} {mes[0]}, {triMe} Trimestre {''}
                     <span className='font-black'>Pol Qualitas</span>
                 </p>
                 <div className='mt-10 right-0 uppercase font-bold'>

@@ -82,6 +82,18 @@ const Recibo = ({setMod ,setValores, year}) => {
             value={"Pol. Qualitas"}
             onClick={() => setMod(2)}
         />
+        <input 
+            type={"button"}
+            className="mt-5 bg-gray-500 w-3/4 p-3 text-white uppercase font-bold hover:bg-gray-600 cursor-pointer transition-all rounded-lg"
+            value={"Tarjetas"}
+            onClick={() => setMod(3)}
+        />
+        <input 
+            type={"button"}
+            className="mt-5 bg-yellow-400 w-3/4 p-3 text-white uppercase font-bold hover:bg-yellow-600 cursor-pointer transition-all rounded-lg"
+            value={"Seleccionar Claves"}
+            onClick={() => setMod(4)}
+        />
     </div>
   )
 }
