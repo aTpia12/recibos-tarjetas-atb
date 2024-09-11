@@ -30,16 +30,12 @@ const SegurosSel = ({datas, setMode, setDatas}) => {
                     const sortList = [...newUnits].sort((a,b) => a.auto_cve - b.auto_cve)
                     setUnits(sortList)
                 }
-            )  
-            units.map(item => {
-                if(item.id > 322){
-                    setDatas([...datas, item.id])
-                }
-            })    
+            )    
     }, []);
+    
 
   return (
-    <div className='grid grid-cols-7 gap-3'>
+    <div className='grid grid-cols-7 gap-3 mb-10'>
         {
             units.map( unit => {
                 return(

@@ -94,6 +94,12 @@ const Recibo = ({setMod ,setValores, year}) => {
             value={"Seleccionar Claves"}
             onClick={() => setMod(4)}
         />
+        <input 
+            type={"button"}
+            className="mt-5 bg-blue-800 w-3/4 p-3 text-white uppercase font-bold hover:bg-blue-600 cursor-pointer transition-all rounded-lg"
+            value={"Agrupar"}
+            onClick={() => setMod(5)}
+        />
     </div>
   )
 }

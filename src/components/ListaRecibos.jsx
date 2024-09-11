@@ -5,6 +5,7 @@ import DatosQualitas from './DatosQualitas'
 import DatosRecibo from './DatosRecibo'
 import DatosTarjeta from './DatosTarjeta'
 import SegurosSel from './SegurosSel'
+import Agrupar from './Agrupar'
 
 const ListaRecibos = ({mod ,valores, mesActual, datas, setMode, setDatas}) => {
 
@@ -62,7 +63,7 @@ const ListaRecibos = ({mod ,valores, mesActual, datas, setMode, setDatas}) => {
                  />
         }) : mod === 2 ? 
         units.map(resp => {
-          return <DatosQualitas
+          return datas.includes(resp.id) ?  '' : <DatosQualitas
                   auto_cve={resp.auto_cve} 
                   valores={valores}
                   mesActual={mesActual}
@@ -82,6 +83,10 @@ const ListaRecibos = ({mod ,valores, mesActual, datas, setMode, setDatas}) => {
             setMode={setMode}
             setDatas={setDatas}
             datas={datas}
+          />
+          : mod === 5 ?
+          <Agrupar 
+
           />
           : ''
        }
